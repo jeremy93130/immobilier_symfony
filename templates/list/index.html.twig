@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ListController!
+{% endblock %}
+
+{% block body %}
+
+	<nav id="header-nav">
+		<div>
+			<i class="fa-solid fa-house"></i>
+			<h2>
+				ImmoLite
+			</h2>
+		</div>
+		<ul>
+			<li>
+				<a href="{{path('app_home')}}" style="{% if app.request.attributes.get('_route') == "app_home" %} background: red; color: white; {% endif %}">Accueil</a>
+			</li>
+			<li>
+				<a href="{{path('app_list')}}" style="{% if app.request.attributes.get('_route') == "app_liste" %} background: red; color: white; {% endif %}">Liste</a>
+			</li>
+			<li>
+				<a href="" style="{% if app.request.attributes.get('_route') == "app_fiche" %} background: red; color: white; {% endif %}">Fiche</a>
+			</li>
+			{% if is_granted('ROLE_ADMIN')
+                %}
+				<li>
+					<a href="">Admin</a>
+				</li>
+			{% endif %}
+		</ul>
+		<ul>
+			<li><a href="{{path('app_login')}}">Se Connecter</a></li>
+			<li><a href="{{path('app_register')}}">S'inscrire</a></li>
+		</ul>
+	</nav>
+
+	<section id="section-list">
+	<div id="filter-list">
+	<h2> Filtres </h2>
+	{{form_start(form)}}
+	{{form_widget(form)}}
+	{{form_end(form)}}
+	</div>
+	<div id="property-list">
+		{% for item in items %}
+			<div id="item-list">
+					<div style="background-image : url('{{asset('images/annonces/'~ (item.mainPhoto ? item.mainPhoto : 'indisponible.webp'))}}')" id="troisDerAnnonce-list">
+						<div id="type-dpe-fav">
+							<div>
+								<span id="type">{{item.type}}</span>
+								<span id="energy">DPE :
+									{{item.energyClass}}</span>
+							</div>
+							<span id="favorite">
+								<i class="fa-solid fa-heart" style="color: #e60f24;"></i>
+							</span>
+						</div>
+						<p id="troisDerPrice">{{item.price|number_format(2, ',', ' ')}}
+							€</p>
+					</div>
+					<div id="troisDerTexte">
+						<h4>{{item.title}}</h4>
+						<div id="troisDerDescr">
+							<p>{{item.town}}</p>
+							<p>{{item.surface}}
+								m².</p>
+							<p>{{item.rooms}}
+								p.</p>
+							<p>
+								{{item.bedrooms}}
+								ch.</p>
+						</div>
+						<div>
+							<p>
+								<a href="">Voir la fiche</a>
+							</p>
+							<button id="contact" class="redButton">
+								Contacter
+							</button>
+						</div>
+					</div>
+				</div>
+		{% endfor %}
+	</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	<nav id="header-nav">
+		<div>
+			<i class="fa-solid fa-house"></i>
+			<h2>
+				ImmoLite
+			</h2>
+		</div>
+		<ul>
+			<li>
+				<a href="{{path('app_home')}}" style="{% if app.request.attributes.get('_route') == "app_home" %} background: red; color: white; {% endif %}">Accueil</a>
+			</li>
+			<li>
+				<a href="{{path('app_list')}}" style="{% if app.request.attributes.get('_route') == "app_liste" %} background: red; color: white; {% endif %}">Liste</a>
+			</li>
+			<li>
+				<a href="" style="{% if app.request.attributes.get('_route') == "app_fiche" %} background: red; color: white; {% endif %}">Fiche</a>
+			</li>
+			{% if is_granted('ROLE_ADMIN')
+                %}
+				<li>
+					<a href="">Admin</a>
+				</li>
+			{% endif %}
+		</ul>
+		<ul>
+			<li>
+				<a href="{{path('app_login')}}">Se Connecter</a>
+			</li>
+			<li>
+				<a href="{{path('app_register')}}">S'inscrire</a>
+			</li>
+		</ul>
+	</nav>
+	<section id="section-home">
+		<div id="banner">
+			<h3>
+				Trouvez votre prochain chez-vous
+			</h3>
+			<p>
+				ImmoLite, des annonces claires et un contact direct avec l'agent. Filtrez par ville, budget, surface...
+			</p>
+
+			<form id="form-filter">
+				<input type="text" placeholder="Ville, code postal...">
+				<select>
+					<option value="nul">Type</option>
+					<option value="maison">
+						Maison
+					</option>
+					<option value="appartement">Appartement</option>
+					<option value="maison-appartement">
+						Maison ou Appartement
+					</option>
+				</select>
+				<select>
+					<option value="nul">
+						Prix Max
+					</option>
+					<option value="quart">150 000 €</option>
+					<option value="demi">
+						300 000 €
+					</option>
+					<option value="troisQuart">
+						450 000 €
+					</option>
+					<option value="centPourCent">
+						600 000 €</option>
+				</select>
+				<button type="submit">
+					Rechercher
+				</button>
+			</form>
+		</div>
+	</section>
+	<section id="derniersBiens">
+		<h2>
+			Derniers biens
+		</h2>
+		<div id="troisDerniers">
+
+			{% for item in items %}
+				<div id="item">
+					<div style="background-image : url('{{asset('images/annonces/'~ (item.mainPhoto ? item.mainPhoto : 'indisponible.webp'))}}')" id="troisDerAnnonce">
+						<div id="type-dpe-fav">
+							<div>
+								<span id="type">{{item.type}}</span>
+								<span id="energy">DPE :
+									{{item.energyClass}}</span>
+							</div>
+							<span id="favorite">
+								<i class="fa-solid fa-heart" style="color: #e60f24;"></i>
+							</span>
+						</div>
+						<p id="troisDerPrice">{{item.price|number_format(2, ',', ' ')}}
+							€</p>
+					</div>
+					<div id="troisDerTexte">
+						<h4>{{item.title}}</h4>
+						<div id="troisDerDescr">
+							<p>{{item.town}}</p>
+							<p>{{item.surface}}
+								m².</p>
+							<p>{{item.rooms}}
+								p.</p>
+							<p>
+								{{item.bedrooms}}
+								ch.</p>
+						</div>
+						<div>
+							<p>
+								<a href="">Voir la fiche</a>
+							</p>
+							<button id="contact" class="redButton">
+								Contacter
+							</button>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+		</div>
+	</section>
+{% endblock %}

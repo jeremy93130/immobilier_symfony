@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: #fafafa; */
+    background-image: url(../images/ville_rouge.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.redButton {
+    padding: 10px 15px;
+    background-color: #e8000c;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Nav header */
+#header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fafafad0;
+}
+
+#header-nav div {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+#header-nav div>* {
+    margin: 0 10px;
+}
+
+
+/* L'icone */
+
+#header-nav div i {
+    background-color: #e8000c;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#header-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+/* L'ul principal (fiche accueil etc) */
+#header-nav ul:first-of-type {
+    width: 50%;
+    justify-content: center;
+}
+
+/* Connexion inscription */
+#header-nav ul:last-of-type {
+    width: 25%;
+}
+
+#header-nav ul li a {
+    border: 1px solid gray;
+    padding: 10px 15px;
+    text-decoration: none;
+
+}
+
+/* La liste accueil, liste, fiche */
+#header-nav ul:first-of-type li a {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+/* fin */
+
+/* Se connecter et s'inscrire */
+#header-nav ul:last-of-type li a {
+    color: rgb(67, 65, 65);
+    border-radius: 40px;
+}
+
+#header-nav ul:last-of-type li:last-child a {
+    background-color: #e8000c;
+}
+
+/* fin */
+
+
+#header-nav ul li {
+    margin: 0 30px;
+}
+
+
+/* Fin nav header */
+
+
+/* Section */
+
+#section-home {
+    height: 300px;
+    background-size: cover;
+    background-image: url('../images/cuisine.avif');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: inset 0 0 900px 80px white;
+}
+
+#banner>h3 {
+    font-size: 50px;
+    padding: 30px 0 10px 20px;
+}
+
+#banner>p {
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+#banner>form {
+    padding: 30px 20px;
+    margin: 30px 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px black;
+    display: flex;
+}
+
+#banner>form>input,
+#banner>form>select,
+#banner>form>button {
+    padding: 10px;
+    margin: 0 20px;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    width: 20%;
+}
+
+#banner>form>button {
+    background-color: #e8000c;
+    color: white;
+    width: 15%;
+}
+
+
+/* 3 derniers biens */
+#derniersBiens {
+    margin: 15px;
+}
+
+#troisDerniers {
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#item {
+    width: 30%;
+}
+
+#item>div:first-of-type {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Div contenant le background des maisons ainsi que les infos */
+#troisDerAnnonce {
+    height: 350px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#troisDerAnnonce>* {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+#troisDerAnnonce span:first-child,
+#troisDerAnnonce div:first-of-type span:nth-child(2) {
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+/* Le type de logement */
+#troisDerAnnonce span:first-child {
+    background-color: white;
+}
+
+
+/* La div qui regroupe les fav, dpe et type */
+#type-dpe-fav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#type-dpe-fav>div>span:last-of-type {
+    background-color: #e8000c;
+    color: white;
+}
+
+/* Fin */
+/* Fin */
+
+
+/* Le prix */
+#troisDerPrice {
+    background-color: rgba(0, 0, 0, 0.455);
+    width: fit-content;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Fin */
+
+
+#troisDerTexte {
+    background-color: white;
+    height: 150px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 3px;
+}
+
+#troisDerTexte>div:last-of-type {
+    display: flex;
+    margin: 30px 0;
+    padding: 0 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#troisDerTexte>div:last-of-type a {
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+#troisDerTexte>div:last-of-type a:hover {
+    text-decoration: underline;
+}
+
+/* contacter */
+
+#troisDerDescr {
+    display: flex;
+    margin: 5px 0;
+}
+
+#troisDerDescr>*:not(:first-child) {
+    margin: 0 5px;
+}
+
+
+/* Partie connexion et inscription*/
+
+.connexion-inscription-form {
+    width: 30%;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 2px 1px black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.connexion-inscription-form label:not(label:last-child),
+.connexion-inscription-form input:not(input:last-of-type) {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    padding: 5px 0;
+}
+
+.connexion-inscription-form-remember {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 
+Partie inscription agreeterms
+*/
+
+div:has(#registration_form_agreeTerms) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div:has(#registration_form_agreeTerms)>label {
+    width: fit-content;
+    padding: 2px;
+    margin: 20px 5px;
+}
+
+div:has(#registration_form_agreeTerms)>input {
+    width: 20px;
+    height: 30px;
+}
+
+
+
+
+/* La liste des propriétés  */
+
+
+#section-list {
+    display: flex;
+}
+
+#property-list {
+    display: flex;
+    min-height: 100vh;
+    justify-content: space-around;
+    padding: 50px 0;
+}
+
+#item-list {
+    width: 250px;
+}
+
+#troisDerAnnonce-list {
+    height: 250px;
+}
+
+
+/* Filtre */
+
+#filter-list {
+    width: fit-content;
+    margin: 50px 20px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: white;
+    height: fit-content;
+}
+
+
+#filter-list input, #filter-list select, #filter-list button {
+    margin: 4px 0;
+    width: 100px;
+}
+#filter{
+    display: flex;
+    flex-wrap: wrap;
+}
