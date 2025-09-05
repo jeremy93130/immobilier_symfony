@@ -36,16 +36,38 @@
 	</nav>
 
 	<section id="section-list">
-	<div id="filter-list">
-	<h2> Filtres </h2>
-	{{form_start(form)}}
-	{{form_widget(form)}}
-	{{form_end(form)}}
-	</div>
-	<div id="property-list">
-		{% for item in items %}
-			<div id="item-list">
-					<div style="background-image : url('{{asset('images/annonces/'~ (item.mainPhoto ? item.mainPhoto : 'indisponible.webp'))}}')" id="troisDerAnnonce-list">
+		<div id="filter-list">
+			<h2>
+				Filtres
+			</h2>
+			{{form_start(form)}}
+			{{form_row(form.type)}}
+			<div>
+				{{form_row(form.priceMin)}}
+				{{form_row(form.priceMax)}}
+			</div>
+			<div>
+				{{form_row(form.surfaceMin)}}
+				{{form_row(form.surfaceMax)}}
+			</div>
+			<div>
+				{{form_row(form.roomsMin)}}
+				{{form_row(form.roomsMax)}}
+			</div>
+			<div>
+				{{form_row(form.bedroomsMin)}}
+				{{form_row(form.bedroomsMax)}}
+			</div>
+			{{form_row(form.energyClass)}}
+			{{form_row(form.town)}}
+			<div>
+				{{form_end(form)}}
+			</div>
+		</div>
+		<div id="property-list">
+			{% for item in items %}
+				<div id="item-list">
+					<div style="background-image : url('{{asset('images/annonces/'~ (item.mainPhoto ? item.mainPhoto : 'indisponible.webp'))}}')" id="troisDerAnnonce">
 						<div id="type-dpe-fav">
 							<div>
 								<span id="type">{{item.type}}</span>
@@ -81,7 +103,7 @@
 						</div>
 					</div>
 				</div>
-		{% endfor %}
-	</div>
+			{% endfor %}
+		</div>
 	</section>
 {% endblock %}

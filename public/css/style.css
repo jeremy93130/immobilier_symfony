@@ -177,7 +177,7 @@ body {
     width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-size: cover;
+    background-size: 100% 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -321,17 +321,21 @@ div:has(#registration_form_agreeTerms)>input {
 
 #section-list {
     display: flex;
+    min-height: 100vh;
 }
 
 #property-list {
     display: flex;
-    min-height: 100vh;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     padding: 50px 0;
+    width: 75%;
 }
 
 #item-list {
-    width: 250px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
 }
 
 #troisDerAnnonce-list {
@@ -348,14 +352,29 @@ div:has(#registration_form_agreeTerms)>input {
     border-radius: 20px;
     background-color: white;
     height: fit-content;
+    position: sticky;
+    top: 100px;
 }
 
 
-#filter-list input, #filter-list select, #filter-list button {
-    margin: 4px 0;
-    width: 100px;
+#filter-list input,
+#filter-list select,
+#filter-list button {
+    margin: 4px 5px;
+    width: 150px;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 2px;
 }
-#filter{
+
+#filter-list form>div {
     display: flex;
-    flex-wrap: wrap;
+    margin: 5px 0;
 }
+
+#filter-list form>div:last-of-type {
+    justify-content: center;
+}
+
+
+/* Liste des propriétés */
